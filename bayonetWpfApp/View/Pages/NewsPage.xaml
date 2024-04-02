@@ -1,0 +1,38 @@
+﻿<Page x:Class="bayonetWpfApp.View.Pages.NewsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:bayonetWpfApp.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="375"
+      Title="NewsPage">
+
+    <Grid Background="Transparent">
+    
+        <TextBlock Foreground="White" Text="Новости" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+
+    
+        <ListBox HorizontalAlignment="Center" BorderThickness="0" Background="Transparent" Margin="0,60,0,0" Name="newsLb" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Padding="0" Width="355">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Width="{Binding ElementName=newsLb, Path=ActualWidth}" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="5" Background="#EFEFEF">
+                        <StackPanel>
+                           
+                            <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="18" TextWrapping="Wrap"/>
+                           
+                            <TextBlock Text="{Binding Description}" FontSize="14" TextWrapping="Wrap" Margin="0,5,0,10"/>
+                           
+                            <Image Stretch="UniformToFill" Source="{Binding Image}" Width="335" Height="200"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>
